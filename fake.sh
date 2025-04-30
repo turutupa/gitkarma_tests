@@ -19,19 +19,28 @@ echo "🔄 Checking out main..."
 git checkout main &>/dev/null
 git pull "$REMOTE" main
 
+echo ""
+
 # Create and switch to new branch
 echo "🌿 Creating branch: $BRANCH_NAME"
 git checkout -b "$BRANCH_NAME"
+
+echo ""
 
 # Create random file
 echo "$RANDOM_CONTENT" > "$TMP_FILE"
 git add "$TMP_FILE"
 git commit -m "chore: add $TMP_FILE"
 
+echo ""
+
 # Push to remote and set upstream
 echo "🚀 Pushing to $REMOTE/$BRANCH_NAME..."
 git push --set-upstream "$REMOTE" "$BRANCH_NAME"
 
+echo ""
+
 # Switch back to main
 git checkout main &>/dev/null
 echo "✅ Done! Created branch '$BRANCH_NAME' and pushed '$TMP_FILE'"
+
